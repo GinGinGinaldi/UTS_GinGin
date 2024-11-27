@@ -1,0 +1,45 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Utama - CV Purnama Tirtatex</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Selamat Datang di Menu Utama</h1>
+            <h2>CV Purnama Tirtatex</h2>
+            <button onclick="window.location.href='detail.html'">Detail Perusahaan</button>
+            <button onclick="window.location.href='menu.html'">Kembali ke Menu Utama</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <section class="company-overview">
+            <h3>Informasi Perusahaan</h3>
+            <p><strong>Nama Perusahaan:</strong> CV Purnama Tirtatex</p>
+            <p><strong>Tahun Didirikan:</strong> 1990</p>
+            <p><strong>Alamat:</strong> Jln Rancajigang No. 198, Desa Padamulya, Kecamatan Majalaya, Kabupaten Bandung, Jawa Barat 40382</p>
+        </section>
+    </div>
+
+    <script>
+        // Cek status login saat halaman dimuat
+        if (localStorage.getItem("loggedIn") !== "true") {
+            // Jika tidak login, arahkan ke halaman login
+            window.location.href = "login.html";
+        }
+
+        // Fungsi Logout
+        function logout() {
+            // Hapus status login dari localStorage
+            localStorage.removeItem("loggedIn");
+
+            // Arahkan ke halaman login setelah logout
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

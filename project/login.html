@@ -1,0 +1,49 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CV Purnama Tirtatex</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();  // Mencegah form disubmit langsung
+
+            // Ambil username dan password yang dimasukkan
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Cek apakah username dan password cocok (misalnya hardcode atau dari server)
+            if (username === "admin" && password === "admin123") { 
+                // Simpan status login di localStorage
+                localStorage.setItem("loggedIn", "true");
+
+                // Arahkan ke halaman menu utama setelah login berhasil
+                window.location.href = "menu.html";
+            } else {
+                alert("Username atau Password salah.");
+            }
+        }
+
+        // Cek apakah sudah login sebelumnya, jika ya, redirect langsung ke menu
+        if (localStorage.getItem("loggedIn") === "true") {
+            window.location.href = "menu.html";
+        }
+    </script>
+</body>
+</html>
